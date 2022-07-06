@@ -182,11 +182,13 @@ pip install git+https://github.com/cocodataset/panopticapi.git
 Download and extract COCO 2017 train and val images with annotations from
 [http://cocodataset.org](http://cocodataset.org/#download).
 We expect the directory structure to be the following:
-```
-path/to/coco/
-  annotations/  # annotation json files
-  train2017/    # train images
-  val2017/      # val images
+
+```bash
+├── datasets
+│      ├── coco
+│             ├── annotations/  # annotation json files
+│             ├── train2017/    # train images
+│             ├── val2017/      # val images
 ```
 
 ## Training
