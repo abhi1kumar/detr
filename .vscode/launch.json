@@ -1,0 +1,31 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+        },
+        {
+            "name": "train_detr",
+            "type": "python",
+            "request": "launch",
+            "program": "/private/home/abhinav1kumar/project/detr/d2/train_net.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "cwd": "/private/home/abhinav1kumar/project/detr/d2/",
+            "env": { "CUDA_VISIBLE_DEVICES": "1", "DISPLAY": "localhost:10.0"},
+            "args": [
+                "--num-gpus", "1", 
+                "--config", "configs/detr_256_6_6_torchvision.yaml", 
+            ],
+        },
+    ]
+}
