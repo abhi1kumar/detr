@@ -12,16 +12,27 @@ This wrapper currently supports only box detection, and is intended to be as clo
 
 To install Detectron2, please follow the [official installation instructions](https://github.com/facebookresearch/detectron2/blob/master/INSTALL.md).
 
+## Data preparation
+
+Make a link to the ```datasets``` folder in the original directory inside the ```d2``` directory. 
+
+```bash
+cd d2
+ln -sfn /private/home/abhi1kumar/project/detr/datasets/ datasets
+```
+
 ## Evaluating a model
 
 For convenience, we provide a conversion script to convert models trained by the main DETR training loop into the format of this wrapper. To download and convert the main Resnet50 model, simply do:
 
-```
+```bash
 python converter.py --source_model https://dl.fbaipublicfiles.com/detr/detr-r50-e632da11.pth --output_model converted_model.pth
 ```
 
 You can then evaluate it using:
-```
+
+```bash
+cd d2
 python train_net.py --eval-only --config configs/detr_256_6_6_torchvision.yaml  MODEL.WEIGHTS "converted_model.pth"
 ```
 
@@ -29,7 +40,9 @@ python train_net.py --eval-only --config configs/detr_256_6_6_torchvision.yaml  
 ## Training
 
 To train DETR on a single node with 8 gpus, simply use:
-```
+
+```bash
+cd d2
 python train_net.py --config configs/detr_256_6_6_torchvision.yaml --num-gpus 8
 ```
 
